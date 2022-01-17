@@ -4,11 +4,7 @@ const uuid = require("uuid");
 
 // Create a pool of connections
 const pool = new Pool({
-  user: "host",
-  host: "localhost",
-  database: "postgres",
-  password: "secret",
-  port: 5432,
+	connectionString: process.env.DATABASE_URL
 });
 
 // Middleware to authenticate the requests

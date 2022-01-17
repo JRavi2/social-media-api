@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const db = require("./queries");
-const port = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.use(
@@ -27,6 +27,6 @@ app.post("/api/comment/:id", db.auth, db.comment);
 app.get("/api/posts/:id", db.getSinglePost);
 app.get("/api/all_posts", db.auth, db.getAllPosts);
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}.`);
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}.`);
 });
