@@ -4,7 +4,10 @@ const uuid = require("uuid");
 
 // Create a pool of connections
 const pool = new Pool({
-	connectionString: process.env.DATABASE_URL
+	connectionString: process.env.DATABASE_URL,
+	ssl: {
+        rejectUnauthorized: false,
+    },
 });
 
 // Middleware to authenticate the requests
